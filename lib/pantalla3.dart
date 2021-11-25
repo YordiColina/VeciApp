@@ -254,3 +254,22 @@ class datosNegocio{
 
 }
 
+class datosPersona{
+
+  String nombre="";
+  String apellido="";
+  String correo="";
+  String foto="";
+  int edad=0;
+  String web="";
+
+  datosPersona(nombre,apellido,correo,foto,edad,web){
+    this.nombre=nombre;
+    this.apellido=apellido;
+    this.correo=correo;
+    this.foto=foto;
+    this.web=web;
+  }
+
+
+}
