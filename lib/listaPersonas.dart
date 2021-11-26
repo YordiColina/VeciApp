@@ -47,7 +47,9 @@ class _listaPersonasState extends State<listaPersonas> {
       appBar: AppBar(
         title: Text("Profesores"),
       ),
+
       drawer: menu(),
+
       body: ListView.builder(
           itemCount: personas.length,
           itemBuilder: (BuildContext context,i){

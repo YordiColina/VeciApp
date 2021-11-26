@@ -6,6 +6,8 @@ import 'package:proyecto_app/registroClientes.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'main.dart';
+
 class pantalla4 extends StatelessWidget {
 
   final datosNegocio negocios;
@@ -19,6 +21,10 @@ class pantalla4 extends StatelessWidget {
         backgroundColor: Colors.cyan[900],
         title: Text("Acerca de: "+negocios.nombre),
       ),
+
+      drawer: menu(),
+
+
       body: ListView(
         children: [
           miCardImage(url: negocios.foto, texto:" Nombre: "+ negocios.nombre+"\n Categoria: "+negocios.categoria+"\n Direccion: "+negocios.direccion

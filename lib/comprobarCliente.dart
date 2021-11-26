@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'actualizarCliente.dart';
+import 'main.dart';
 
 
 class comprobarCliente extends StatefulWidget {
@@ -24,6 +25,10 @@ class _comprobarClienteState extends State<comprobarCliente> {
         appBar: AppBar(
           title: Text("Comprobar Cliente"),
         ),
+
+        drawer: menu(),
+
+
         body: ListView(children: [
           Container(
               padding: EdgeInsets.all(20.0),

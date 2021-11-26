@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'main.dart';
+
 class pantalla5 extends StatefulWidget {
   const pantalla5({Key? key}) : super(key: key);
 
@@ -42,10 +44,16 @@ class _pantalla5State extends State<pantalla5> {
         appBar: AppBar(
           backgroundColor: Colors.cyan[900],
 
+
+
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: Text("Listado de Negocios"),
         ),
+
+      drawer: menu(),
+
+
       body:
         ListView.builder(
             itemCount: datos_negocios.length,
