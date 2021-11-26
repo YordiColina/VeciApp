@@ -162,7 +162,7 @@ class _pantalla3State extends State<pantalla3> {
     @override
     Widget build(BuildContext context) {
       return Scaffold(
-        backgroundColor: Colors.cyan[50],
+        backgroundColor: Colors.amber[50],
         appBar: AppBar(
           backgroundColor: Colors.cyan[900],
           title: Text("El Resultado de : " + widget.criterio),

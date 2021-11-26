@@ -14,35 +14,36 @@ class comprobarCliente extends StatefulWidget {
 }
 
 class _comprobarClienteState extends State<comprobarCliente> {
-  final cedula = TextEditingController();
   final correo = TextEditingController();
+  final password = TextEditingController();
   CollectionReference cliente =
   FirebaseFirestore.instance.collection("Clientes");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.amber[50],
         appBar: AppBar(
-          title: Text("Comprobar Cliente"),
+          backgroundColor: Colors.cyan[900],
+          title: Text("Iniciar Sesion"),
+          centerTitle: true,
         ),
 
         drawer: menu(),
 
 
         body: ListView(children: [
-          Container(
-              padding: EdgeInsets.all(20.0),
-              child: TextField(
-                controller: cedula,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
-                    filled: true,
-                    icon: Icon(Icons.assignment_rounded,
-                        size: 25, color: Colors.blue),
-                    hintText: "Digite numero de cedula",
-                    hintStyle: TextStyle(color: Colors.black12)),
-              )),
+          Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 105.0, right: 15.0, bottom: 0.0),
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage('https://firebasestorage.googleapis.com/v0/b/equipo1proyecto-98cd8.appspot.com/o/imagenes%20proyecto%20veci%20app%2Flogin2.png?alt=media&token=60a1bb6f-b789-4531-9031-a7a785af3abe'),
+                  radius: 70,
+                ),
+              )
+            ],
+          ),
           Container(
               padding: EdgeInsets.all(20.0),
               child: TextField(
@@ -53,7 +54,20 @@ class _comprobarClienteState extends State<comprobarCliente> {
                     filled: true,
                     icon: Icon(Icons.assignment_rounded,
                         size: 25, color: Colors.blue),
-                    hintText: "Digite su correo",
+                    hintText: "Digite su Correo Electronico ",
+                    hintStyle: TextStyle(color: Colors.black12)),
+              )),
+          Container(
+              padding: EdgeInsets.all(20.0),
+              child: TextField(
+                controller: password,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    fillColor: Colors.lightBlue,
+                    filled: true,
+                    icon: Icon(Icons.assignment_rounded,
+                        size: 25, color: Colors.blue),
+                    hintText: "Digite su Contraseña",
                     hintStyle: TextStyle(color: Colors.black12)),
               )),
           Container(
@@ -62,8 +76,8 @@ class _comprobarClienteState extends State<comprobarCliente> {
             child: ElevatedButton(
               onPressed: () async {
                 QuerySnapshot ingreso = await cliente
-                    .where(FieldPath.documentId, isEqualTo: cedula.text)
                     .where("correo", isEqualTo: correo.text)
+                    .where("password", isEqualTo: password.text)
                     .get();
                 List listaCliente = [];
                 if (ingreso.docs.length > 0) {
@@ -71,9 +85,9 @@ class _comprobarClienteState extends State<comprobarCliente> {
                     listaCliente.add(cli.data());
                   }
                   datosCliente dCli = datosCliente(
-                      cedula.text, listaCliente[0]['nombre'],
+                      password.text, listaCliente[0]['nombre'],
                       listaCliente[0]['apellidos'], listaCliente[0]['correo'],
-                      listaCliente[0]['celular']);
+                      listaCliente[0]['celular'],listaCliente[0]['password']);
                   Navigator.push(context, MaterialPageRoute(
                       builder: (context) => actualizarCliente(cliente: dCli)));
                   Fluttertoast.showToast(msg: "Cargando Datos",
@@ -106,14 +120,17 @@ class datosCliente {
   String apellido = "";
   String correo = "";
   String celular = "";
+  String password = "";
 
 
-  datosCliente(cedula, nombre, apellido, correo, celular) {
+  datosCliente(cedula, nombre, apellido, correo, celular,password) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.correo = correo;
     this.cedula = cedula;
     this.celular = celular;
+    this.password=password;
+
   }
 
 

@@ -2,6 +2,7 @@ import 'package:proyecto_app/pantalla2.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:proyecto_app/pantalla5.dart';
 import 'package:proyecto_app/registroClientes.dart';
 
 import 'comprobarCliente.dart';
@@ -55,36 +56,43 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.cyan[50],
 
         appBar: AppBar(
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.cyan[900],
            centerTitle: true,
           title: Text("INICIO"),
         ),
 
 
       drawer: menu(),
-        body:ListView.builder(
+        body:
 
-            itemBuilder: (BuildContext context, j) {
-              return ListTile(
-                  onTap: () {
+          Column(
 
-                  },
-                  title:
-                  Container(decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage('https://firebasestorage.googleapis.com/v0/b/equipo1proyecto-98cd8.appspot.com/o/circuitos.jpg?alt=media&token=7cdd2768-8e55-4d4f-8a36-fce6c5576742'),
-                      fit: BoxFit.cover,
+            children: [
+              Center(
 
-                    ),
-                  ),
-                  )
-              );
-            }),
+                child: Text(
+                  'VeciApp',
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 35,color: Colors.brown),
 
 
-        floatingActionButton:FloatingActionButton.extended(
+
+
+
+
+
+        ),
+              ),
+              Image.network('https://firebasestorage.googleapis.com/v0/b/equipo1proyecto-98cd8.appspot.com/o/imagenes%20proyecto%20veci%20app%2Fnegocio.png?alt=media&token=b22f031e-7400-4ff2-90f2-015ceaf38447',
+                alignment: Alignment.center ,)
+            ],
+          ),
+
+        /*floatingActionButton:FloatingActionButton.extended(
             onPressed: (){
               Navigator.push(context,MaterialPageRoute(builder:(context)=>pantalla2( )));
             },
@@ -92,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon:Icon(Icons.arrow_forward_sharp),
 
 
-        ),
+        )*/
 
 
       // This trailing comma makes auto-formatting nicer for build methods.
@@ -111,15 +119,15 @@ class menu extends StatelessWidget {
           children: [
             DrawerHeader(
                 decoration: BoxDecoration(
-                    color: Colors.amberAccent
+                    color: Colors.cyan[900]
                 ),
-                child: Image.network('https://www.lifeder.com/wp-content/uploads/2018/06/mercado-negocios-empresas-630x420.jpg')
+                child: Image.network('https://firebasestorage.googleapis.com/v0/b/equipo1proyecto-98cd8.appspot.com/o/imagenes%20proyecto%20veci%20app%2Fnegocio.png?alt=media&token=b22f031e-7400-4ff2-90f2-015ceaf38447')
             ),
             Column(
                 children: [
                   ListTile(
                     leading: Icon(Icons.account_circle_outlined, size: 30, color: Colors.green),
-                    title: Text("Consultar Personas"),
+                    title: Text("Busqueda General"),
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla2()));
                     },
@@ -142,11 +150,12 @@ class menu extends StatelessWidget {
                   ListTile(
                     trailing: Icon(Icons.account_box,size: 30, color: Colors.green),
                     enabled: true,
-                    title: Text("Registrar Pedido"),
+                    title: Text("Mis Negocios"),
                     onTap: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido()));
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla5()));
                     },
-                  )
+                  ),
+
                 ]
             )
           ],

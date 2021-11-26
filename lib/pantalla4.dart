@@ -16,7 +16,7 @@ class pantalla4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan[50],
+      backgroundColor: Colors.amber[50],
       appBar:  AppBar(
         backgroundColor: Colors.cyan[900],
         title: Text("Acerca de: "+negocios.nombre),

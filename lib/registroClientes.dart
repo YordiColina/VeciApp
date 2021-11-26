@@ -17,6 +17,8 @@ class _registroClientesState extends State<registroClientes> {
   final apellido=TextEditingController();
   final correo=TextEditingController();
   final celular=TextEditingController();
+  final password=TextEditingController();
+  final confirmacion=TextEditingController();
 
   void limpiar(){
     cedula.text=""; nombre.text=""; apellido.text=""; correo.text=""; celular.text="";
@@ -26,8 +28,11 @@ class _registroClientesState extends State<registroClientes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.amber[50],
       appBar: AppBar(
+        backgroundColor: Colors.cyan[900],
         title: Text("Registro de Clientes"),
+        centerTitle: true,
       ),
 
       drawer: menu(),
@@ -105,6 +110,34 @@ class _registroClientesState extends State<registroClientes> {
                 ),
               )
           ),
+          Container(
+              padding: EdgeInsets.all(20.0),
+              child: TextField(
+                controller: password,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    fillColor: Colors.lightBlue,
+                    filled: true,
+                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    hintText: "Digite su contraseña",
+                    hintStyle: TextStyle(color: Colors.black12)
+                ),
+              )
+          ),
+          Container(
+              padding: EdgeInsets.all(20.0),
+              child: TextField(
+                controller: confirmacion,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    fillColor: Colors.lightBlue,
+                    filled: true,
+                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    hintText: "Confirme su Contraseña",
+                    hintStyle: TextStyle(color: Colors.black12)
+                ),
+              )
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -113,7 +146,7 @@ class _registroClientesState extends State<registroClientes> {
                 alignment: Alignment.center,
                 child: ElevatedButton(
                   onPressed: () async {
-                    if(cedula.text.isEmpty || nombre.text.isEmpty || apellido.text.isEmpty || correo.text.isEmpty || celular.text.isEmpty){
+                    if(cedula.text.isEmpty || nombre.text.isEmpty || apellido.text.isEmpty || correo.text.isEmpty || celular.text.isEmpty|| password.text.isEmpty|| confirmacion.text.isEmpty){
                       print("Campos Vacios");
                       Fluttertoast.showToast(msg: "Campos Vacios", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.BOTTOM);
                     }else{
@@ -127,7 +160,9 @@ class _registroClientesState extends State<registroClientes> {
                           "nombre": nombre.text,
                           "apellidos": apellido.text,
                           "correo": correo.text,
-                          "celular": celular.text
+                          "celular": celular.text,
+                          "password":password.text,
+                          "confirmacion": confirmacion.text
                         });
                         QuerySnapshot inserto = await clientes.where(FieldPath.documentId, isEqualTo: cedula.text).get();
                         limpiar();
@@ -185,7 +220,7 @@ class _registroClientesState extends State<registroClientes> {
               )
             ],
           ),
-          Row(
+          /*Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
@@ -239,7 +274,9 @@ class _registroClientesState extends State<registroClientes> {
           Navigator.push(context, MaterialPageRoute(builder: (context)=>comprobarCliente()));
         },
         child: Icon(Icons.arrow_forward_sharp,size: 30,color: Colors.white),
-      ),
+      ),*/
+    ])
+
     );
   }
 }
