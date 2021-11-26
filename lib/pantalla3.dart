@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:proyecto_app/pantalla4.dart';
 
+import 'main.dart';
+
 class pantalla3 extends StatefulWidget {
   final String criterio;
   const pantalla3(this.criterio,{Key? key}) : super(key: key);
@@ -165,6 +167,10 @@ class _pantalla3State extends State<pantalla3> {
           backgroundColor: Colors.cyan[900],
           title: Text("El Resultado de : " + widget.criterio),
         ),
+
+        drawer: menu(),
+
+
         body: ListView.builder(
             itemCount: pers.length,
             itemBuilder: (BuildContext context, j) {

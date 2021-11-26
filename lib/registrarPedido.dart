@@ -40,9 +40,13 @@ class _registrarPedidoState extends State<registrarPedido> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Regsitrar Pedido"),
+          title: Text("Registrar Pedido"),
         ),
+
+
         drawer: menu(),
+
+
         body: ListView.builder(
             itemCount: listaCursos.length,
             itemBuilder: (BuildContext context,i){

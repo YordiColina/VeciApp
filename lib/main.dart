@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:proyecto_app/registroClientes.dart';
 
 import 'comprobarCliente.dart';
+import 'moduloPedido.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -60,6 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
            centerTitle: true,
           title: Text("INICIO"),
         ),
+
+
+      drawer: menu(),
         body:ListView.builder(
 
             itemBuilder: (BuildContext context, j) {
@@ -139,9 +143,9 @@ class menu extends StatelessWidget {
                     trailing: Icon(Icons.account_box,size: 30, color: Colors.green),
                     enabled: true,
                     title: Text("Registrar Pedido"),
-                    //onTap: (){
-                   //   Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido()));
-                  //  },
+                    onTap: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido()));
+                    },
                   )
                 ]
             )

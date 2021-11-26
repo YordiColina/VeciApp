@@ -6,6 +6,8 @@ import 'package:proyecto_app/pantalla3.dart';
 import 'package:proyecto_app/pantalla4.dart';
 import 'package:proyecto_app/pantalla5.dart';
 
+import 'main.dart';
+
 class  pantalla2 extends StatelessWidget {
   //const pantalla2 ({Key? key}) : super(key: key);
   TextEditingController dato=TextEditingController();
@@ -19,6 +21,10 @@ class  pantalla2 extends StatelessWidget {
           centerTitle: true,
           title: Text('Consulta tu Local')
       ),
+
+      drawer: menu(),
+
+
       body: Column(
 
         children: [
