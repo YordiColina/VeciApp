@@ -19,9 +19,9 @@ class _registroClientesState extends State<registroClientes> {
   final celular=TextEditingController();
   final password=TextEditingController();
   final confirmacion=TextEditingController();
-
+  List pers = [];
   void limpiar(){
-    cedula.text=""; nombre.text=""; apellido.text=""; correo.text=""; celular.text="";
+    cedula.text=""; nombre.text=""; apellido.text=""; correo.text=""; celular.text=""; password.text="";confirmacion.text="";
   }
 
   CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
@@ -164,7 +164,26 @@ class _registroClientesState extends State<registroClientes> {
                           "password":password.text,
                           "confirmacion": confirmacion.text
                         });
+                       /* void getCriterio3() async {
+                          String respuesta=" ";
+                          CollectionReference datos3 = FirebaseFirestore.instance.collection(
+                              'negocios');
+                          QuerySnapshot negocios3 = await datos3.where(
+                              "password", isEqualTo: confirmacion.text).get();
+                          if (negocios3.docs.length != 0) {
+                            for (var per in negocios3.docs) {
+                              print(per.data());
+                              setState(() {
+                                pers.add(per);
+                                respuesta=pers['password'].toString();
+                              }
+                              );
+                            }
+                          }
+                        }*/
+
                         QuerySnapshot inserto = await clientes.where(FieldPath.documentId, isEqualTo: cedula.text).get();
+
                         limpiar();
                         if(inserto.docs.length>0){
                           Fluttertoast.showToast(msg: "Se Registo el Cliente Exitosamente.", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.BOTTOM);

@@ -50,10 +50,10 @@ class _comprobarClienteState extends State<comprobarCliente> {
                 controller: correo,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.blue,
                     filled: true,
                     icon: Icon(Icons.assignment_rounded,
-                        size: 25, color: Colors.blue),
+                        size: 25, color: Colors.deepOrangeAccent),
                     hintText: "Digite su Correo Electronico ",
                     hintStyle: TextStyle(color: Colors.black12)),
               )),
@@ -63,17 +63,19 @@ class _comprobarClienteState extends State<comprobarCliente> {
                 controller: password,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.blue,
                     filled: true,
                     icon: Icon(Icons.assignment_rounded,
-                        size: 25, color: Colors.blue),
+                        size: 25, color: Colors.deepOrangeAccent),
                     hintText: "Digite su Contraseña",
                     hintStyle: TextStyle(color: Colors.black12)),
               )),
           Container(
             padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+
             alignment: Alignment.center,
             child: ElevatedButton(
+
               onPressed: () async {
                 QuerySnapshot ingreso = await cliente
                     .where("correo", isEqualTo: correo.text)
@@ -85,7 +87,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
                     listaCliente.add(cli.data());
                   }
                   datosCliente dCli = datosCliente(
-                      password.text, listaCliente[0]['nombre'],
+                      "", listaCliente[0]['nombre'],
                       listaCliente[0]['apellidos'], listaCliente[0]['correo'],
                       listaCliente[0]['celular'],listaCliente[0]['password']);
                   Navigator.push(context, MaterialPageRoute(
@@ -105,7 +107,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
                       gravity: ToastGravity.CENTER);
                 }
               },
-              child: Text("Verificar",
+              child: Text("Iniciar Sesion",
                   style: TextStyle(color: Colors.white, fontSize: 25)),
             ),
           )

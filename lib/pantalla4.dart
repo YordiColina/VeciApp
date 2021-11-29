@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:proyecto_app/moduloPedido.dart';
 import 'package:proyecto_app/pantalla3.dart';
 import 'package:proyecto_app/registroClientes.dart';
 
@@ -39,7 +40,7 @@ class pantalla4 extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>registroClientes()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido()));
         },
         child: Icon(Icons.add,size: 30,color: Colors.white),
       ),
