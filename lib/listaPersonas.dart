@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:proyecto_app/pantalla3.dart';
@@ -27,7 +25,7 @@ class _listaPersonasState extends State<listaPersonas> {
   }
 
   void getPersonas() async {
-    CollectionReference persona = FirebaseFirestore.instance.collection("Personas");
+    CollectionReference persona = FirebaseFirestore.instance.collection("negocios");
     String id="";
     QuerySnapshot datos = await persona.get();
     if(datos.docs.length>0){
@@ -47,9 +45,7 @@ class _listaPersonasState extends State<listaPersonas> {
       appBar: AppBar(
         title: Text("Profesores"),
       ),
-
       drawer: menu(),
-
       body: ListView.builder(
           itemCount: personas.length,
           itemBuilder: (BuildContext context,i){

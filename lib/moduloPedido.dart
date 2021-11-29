@@ -2,10 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:proyecto_app/listaPersonas.dart';
 
+import 'listaPersonas.dart';
 import 'main.dart';
-
 
 class moduloPedido extends StatefulWidget {
   const moduloPedido({Key? key}) : super(key: key);
@@ -92,5 +91,4 @@ class _moduloPedidoState extends State<moduloPedido> {
         ]));
   }
 }
-
 
