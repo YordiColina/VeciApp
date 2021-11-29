@@ -74,20 +74,25 @@ class _comprobarClienteState extends State<comprobarCliente> {
             padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
 
             alignment: Alignment.center,
-            child: ElevatedButton(
+            child:ElevatedButton(
+                  onPressed: () async {
+                List listaCliente = [];
 
-              onPressed: () async {
+
                 QuerySnapshot ingreso = await cliente
                     .where("correo", isEqualTo: correo.text)
                     .where("password", isEqualTo: password.text)
                     .get();
-                List listaCliente = [];
+
+
                 if (ingreso.docs.length > 0) {
                   for (var cli in ingreso.docs) {
                     listaCliente.add(cli.data());
                   }
+
+
                   datosCliente dCli = datosCliente(
-                      "", listaCliente[0]['nombre'],
+                      listaCliente[0]['id'], listaCliente[0]['nombre'],
                       listaCliente[0]['apellidos'], listaCliente[0]['correo'],
                       listaCliente[0]['celular'],listaCliente[0]['password']);
                   Navigator.push(context, MaterialPageRoute(
@@ -110,10 +115,12 @@ class _comprobarClienteState extends State<comprobarCliente> {
               child: Text("Iniciar Sesion",
                   style: TextStyle(color: Colors.white, fontSize: 25)),
             ),
-          )
-        ]));
+          ),
+        ])
+    );
+    }
   }
-}
+
 
 class datosCliente {
 
