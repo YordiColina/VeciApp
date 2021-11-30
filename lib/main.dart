@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:proyecto_app/pantalla5.dart';
 import 'package:proyecto_app/registroClientes.dart';
 
+
 import 'comprobarCliente.dart';
 import 'moduloPedido.dart';
 
@@ -140,6 +141,7 @@ class menu extends StatelessWidget {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>registroClientes()));
                     },
                   ),
+
                   ListTile(
                     trailing: Icon(Icons.account_box,size: 30, color: Colors.green),
                     enabled: true,
