@@ -5,32 +5,32 @@ import 'main.dart';
 
 class registrarPedido extends StatefulWidget {
   final String id,cedula;
-  const registrarPedido({required this.id, required this.cedula});
+  const registrarPedido({required this.id,required this.cedula});
 
   @override
   _registrarPedidoState createState() => _registrarPedidoState();
 }
 
 class _registrarPedidoState extends State<registrarPedido> {
-  List listaCursos=[];
+  List listaProductos=[];
   List codigosGustos=[];
   List<datosPedido> pedido=[];
 
   void initState(){
     super.initState();
-    getCursos();
+    getProductos();
   }
 
-  void getCursos() async {
+  void getProductos() async {
 
     CollectionReference gustos = FirebaseFirestore.instance.collection("Productos");   //Gustos=Productos
     String cod="";
-    QuerySnapshot cursos= await gustos.where("negocio", isEqualTo: widget.id).get(); //negocio=persona
-    if(cursos.docs.length>0){
-      for(var doc in cursos.docs){
+    QuerySnapshot product= await gustos.where("negocio", isEqualTo: widget.id).get(); //negocio=persona
+    if(product.docs.length>0){
+      for(var doc in product.docs){
         cod=doc.id.toString();
         codigosGustos.add(cod);
-        listaCursos.add(doc.data());
+        listaProductos.add(doc.data());
       }
     }
     setState(() {
@@ -51,7 +51,7 @@ class _registrarPedidoState extends State<registrarPedido> {
         ),
         drawer: menu(),
         body: ListView.builder(
-            itemCount: listaCursos.length,
+            itemCount: listaProductos.length,
             itemBuilder: (BuildContext context,i){
               var can = TextEditingController();
               return ListTile(
@@ -59,7 +59,7 @@ class _registrarPedidoState extends State<registrarPedido> {
                 title: Container(
                   padding: EdgeInsets.all(20.0),
                   color: Colors.yellow,
-                  child: Text(listaCursos[i]['nombre']+" - "+listaCursos[i]['descripcion']+" - "+listaCursos[i]['precio'].toString()),
+                  child: Text(listaProductos[i]['nombre']+" - "+listaProductos[i]['descripcion']+" - "+listaProductos[i]['precio'].toString()),
                 ),
                 subtitle: TextField(
                   controller: can,
@@ -71,9 +71,9 @@ class _registrarPedidoState extends State<registrarPedido> {
                   if(can.text.isEmpty){
                     can.text="0";
                   }
-                  int total=int.parse(can.text)*(int.parse(listaCursos[i]['precio'].toString()));
-                  datosPedido p = datosPedido(codigosGustos[i], listaCursos[i]['nombre'], listaCursos[i]['descripcion'],
-                      listaCursos[i]['precio'].toString(), int.parse(can.text), total);
+                  int total=int.parse(can.text)*(int.parse(listaProductos[i]['precio'].toString()));
+                  datosPedido p = datosPedido(codigosGustos[i], listaProductos[i]['nombre'], listaProductos[i]['descripcion'],
+                      listaProductos[i]['precio'].toString(), int.parse(can.text), total);
                   pedido.add(p);
                 },
               );

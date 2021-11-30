@@ -51,7 +51,7 @@ class _listaPersonasState extends State<listaPersonas> {
           itemBuilder: (BuildContext context,i){
             return ListTile(
                 onTap:(){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>registrarPedido(id: codigos[i], cedula: widget.cedula)));
+
                 },
                 title: miCardImage(url: personas[i]['foto'],texto: personas[i]['nombre']+" "+personas[i]['apellido']+'\n'+personas[i]['correo'])
             );

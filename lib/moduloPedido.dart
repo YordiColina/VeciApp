@@ -1,7 +1,10 @@
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:proyecto_app/registrarPedido.dart';
 
 import 'listaPersonas.dart';
 import 'main.dart';
@@ -14,10 +17,13 @@ class moduloPedido extends StatefulWidget {
 }
 
 class _moduloPedidoState extends State<moduloPedido> {
-  final cedula = TextEditingController();
   final correo = TextEditingController();
+  final password = TextEditingController();
   CollectionReference cliente =
   FirebaseFirestore.instance.collection("Clientes");
+
+  CollectionReference aux= FirebaseFirestore.instance.collection("negocios");
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,19 +36,6 @@ class _moduloPedidoState extends State<moduloPedido> {
           Container(
               padding: EdgeInsets.all(20.0),
               child: TextField(
-                controller: cedula,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
-                    filled: true,
-                    icon: Icon(Icons.assignment_rounded,
-                        size: 25, color: Colors.blue),
-                    hintText: "Digite numero de cedula",
-                    hintStyle: TextStyle(color: Colors.black12)),
-              )),
-          Container(
-              padding: EdgeInsets.all(20.0),
-              child: TextField(
                 controller: correo,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
@@ -50,7 +43,20 @@ class _moduloPedidoState extends State<moduloPedido> {
                     filled: true,
                     icon: Icon(Icons.assignment_rounded,
                         size: 25, color: Colors.blue),
-                    hintText: "Digite su correo",
+                    hintText: "Digite Su Correo",
+                    hintStyle: TextStyle(color: Colors.black12)),
+              )),
+          Container(
+              padding: EdgeInsets.all(20.0),
+              child: TextField(
+                controller: password,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    fillColor: Colors.lightBlue,
+                    filled: true,
+                    icon: Icon(Icons.assignment_rounded,
+                        size: 25, color: Colors.blue),
+                    hintText: "Digite su contraseña",
                     hintStyle: TextStyle(color: Colors.black12)),
               )),
           Container(
@@ -58,17 +64,34 @@ class _moduloPedidoState extends State<moduloPedido> {
             alignment: Alignment.center,
             child: ElevatedButton(
               onPressed: () async {
+                String cedula;
+                String id;
+                List listaNegocios = [];
                 QuerySnapshot ingreso = await cliente
-                    .where(FieldPath.documentId, isEqualTo: cedula.text)
                     .where("correo", isEqualTo: correo.text)
+                    .where("password", isEqualTo: password.text)
                     .get();
                 List listaCliente = [];
+
+
                 if (ingreso.docs.length > 0) {
                   for (var cli in ingreso.docs) {
                     listaCliente.add(cli.data());
                   }
+             QuerySnapshot ingreso2 = await aux.get();
 
-                  Navigator.push(context, MaterialPageRoute (builder: (context) =>listaPersonas(cedula: cedula.text)));
+
+
+                if (ingreso2.docs.length > 0) {
+                  for (var cli in ingreso2.docs) {
+                    listaNegocios.add(cli.data());
+                  }
+                }
+
+                cedula = listaCliente[0]['id'];
+                id = listaNegocios[0]['id'];
+
+                  Navigator.push(context, MaterialPageRoute (builder: (context) =>registrarPedido(cedula: cedula,id: id,)));
                   Fluttertoast.showToast(msg: "Cargando Datos",
                       fontSize: 20,
                       backgroundColor: Colors.red,
