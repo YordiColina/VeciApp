@@ -29,7 +29,9 @@ class _pantalla5State extends State<pantalla5> {
       print("Trae Datos");
       for(var doc in negocios.docs){
         print(doc.data());
-        datos_negocios.add(doc.data());
+
+          datos_negocios.add(doc.data());
+
       }
     } else{
       print("Ha fallado.......");

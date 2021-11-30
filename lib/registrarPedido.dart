@@ -39,14 +39,20 @@ class _registrarPedidoState extends State<registrarPedido> {
   }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+      backgroundColor: Colors.amber[50],
         appBar: AppBar(
+          backgroundColor: Colors.cyan[900],
           title: Text("Registrar Pedido"),
+          centerTitle: true,
           actions: [
             IconButton(
                 onPressed: (){
+
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>carritoCompras(pedido: pedido, cedula: widget.cedula, id: widget.id)));
-                }, icon: Icon(Icons.add_shopping_cart, size: 30, color: Colors.amber))
+
+                }, icon: Icon(Icons.add_shopping_cart, size: 30, color: Colors.deepOrangeAccent))
           ],
         ),
         drawer: menu(),
@@ -55,11 +61,18 @@ class _registrarPedidoState extends State<registrarPedido> {
             itemBuilder: (BuildContext context,i){
               var can = TextEditingController();
               return ListTile(
-                leading: Icon(Icons.add_box, size: 30,color: Colors.blue),
-                title: Container(
+
+                leading: Icon(Icons.add_box, size: 40,color: Colors.deepOrangeAccent),
+                title:
+                  Container(
                   padding: EdgeInsets.all(20.0),
-                  color: Colors.yellow,
-                  child: Text(listaProductos[i]['nombre']+" - "+listaProductos[i]['descripcion']+" - "+listaProductos[i]['precio'].toString()),
+                  color: Colors.amber[200],
+                  child: Column(
+                    children: [
+                      Image.network(listaProductos[i]['foto']),
+                      Text(listaProductos[i]['nombre']+" - "+listaProductos[i]['descripcion']+" - "+listaProductos[i]['precio'].toString()),
+                    ],
+                  ),
                 ),
                 subtitle: TextField(
                   controller: can,

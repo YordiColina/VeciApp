@@ -35,15 +35,31 @@ class pantalla4 extends StatelessWidget {
               onPressed: (){
                 launch(negocios.pagina.toString());
               },
-              child: Text("Pagina oficial"))
+              child: Text("Pagina oficial",style: TextStyle(fontSize: 20),)
+          ),
+          ElevatedButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido()));
+            },
+            child:RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Realizar Pedido",style: TextStyle(fontSize: 20)
+                  ),
+                  WidgetSpan(
+                    child: Icon(Icons.add, size: 25),
+                  ),
+
+                ],
+              ),
+            )
+
+          )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido()));
-        },
-        child: Icon(Icons.add,size: 30,color: Colors.white),
-      ),
+
     );
   }
 }
+
