@@ -177,7 +177,7 @@ class _pantalla3State extends State<pantalla3> {
               return ListTile(
                   onTap: () {
                     print(pers[j]);
-                    datosNegocio N = datosNegocio(pers[j]['nombre'],
+                    datosNegocio N = datosNegocio(pers[j]['id'],pers[j]['nombre'],
                         pers[j]['categoria'],
                         pers[j]['direccion'], pers[j]['foto'],pers[j]['celular'],
                         pers[j]['telefono'], pers[j]['pagina'],pers[j]['producto1'],
@@ -228,7 +228,7 @@ class _pantalla3State extends State<pantalla3> {
   }
 
 class datosNegocio{
-
+  String id="";
   String nombre="";
   String categoria="";
   String direccion="";
@@ -242,7 +242,8 @@ class datosNegocio{
   String producto4="";
   String geolocalizacion="";
 
-  datosNegocio(nombre,categoria,direccion,foto,celular,telefono,pagina,producto1,producto2,producto3,producto4,geolocalizacion){
+  datosNegocio(id,nombre,categoria,direccion,foto,celular,telefono,pagina,producto1,producto2,producto3,producto4,geolocalizacion){
+    this.id=id;
     this.nombre=nombre;
     this.categoria=categoria;
     this.direccion=direccion;

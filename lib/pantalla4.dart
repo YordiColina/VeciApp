@@ -39,7 +39,8 @@ class pantalla4 extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido()));
+              print(negocios.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido(id: negocios.id,)));
             },
             child:RichText(
               text: TextSpan(

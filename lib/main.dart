@@ -132,9 +132,10 @@ class menu extends StatelessWidget {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla2()));
                     },
                   ),
+
                   ListTile(
                     trailing: Icon(Icons.account_box,size: 30, color: Colors.green),
-                    title: Text("Registrar Cliente"),
+                    title: Text("Registrarme"),
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>registroClientes()));
                     },
@@ -142,7 +143,7 @@ class menu extends StatelessWidget {
                   ListTile(
                     trailing: Icon(Icons.account_box,size: 30, color: Colors.green),
                     enabled: true,
-                    title: Text("Actualizar Datos"),
+                    title: Text("Ingresar"),
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>comprobarCliente()));
                     },

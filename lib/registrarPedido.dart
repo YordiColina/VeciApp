@@ -20,13 +20,15 @@ class _registrarPedidoState extends State<registrarPedido> {
     super.initState();
     getProductos();
   }
-
+  String aux="";
   void getProductos() async {
 
-    CollectionReference gustos = FirebaseFirestore.instance.collection("Productos");   //Gustos=Productos
+    CollectionReference gustos = FirebaseFirestore.instance.collection("Productos");
+    CollectionReference gustos2 = FirebaseFirestore.instance.collection("negocios");//Gustos=Productos
     String cod="";
-    QuerySnapshot product= await gustos.where("negocio", isEqualTo: widget.id).get(); //negocio=persona
-    if(product.docs.length>0){
+    QuerySnapshot product= await gustos.where("negocio", isEqualTo: widget.id).get();
+    QuerySnapshot product2= await gustos2.where("id", isEqualTo: widget.id).get();//negocio=persona
+    if(product.docs.length>0 && product2.docs.length>0){
       for(var doc in product.docs){
         cod=doc.id.toString();
         codigosGustos.add(cod);

@@ -32,8 +32,13 @@ class _pantalla5State extends State<pantalla5> {
 
           datos_negocios.add(doc.data());
 
+            setState(() {
+
+            });
+
       }
-    } else{
+    }
+    else{
       print("Ha fallado.......");
     }
 
@@ -66,7 +71,7 @@ class _pantalla5State extends State<pantalla5> {
               return ListTile(
                   onTap: () {
                     print(datos_negocios[j]);
-                    datosNegocio N = datosNegocio(datos_negocios[j]['nombre'],
+                    datosNegocio N = datosNegocio(datos_negocios[j]['id'],datos_negocios[j]['nombre'],
                         datos_negocios[j]['categoria'],
                         datos_negocios[j]['direccion'], datos_negocios[j]['foto'],datos_negocios[j]['celular'],
                         datos_negocios[j]['telefono'], datos_negocios[j]['pagina'],datos_negocios[j]['producto1'],

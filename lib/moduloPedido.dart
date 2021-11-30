@@ -10,7 +10,8 @@ import 'listaPersonas.dart';
 import 'main.dart';
 
 class moduloPedido extends StatefulWidget {
-  const moduloPedido({Key? key}) : super(key: key);
+  final String id;
+  const moduloPedido({required this.id});
 
   @override
   _moduloPedidoState createState() => _moduloPedidoState();
@@ -22,7 +23,7 @@ class _moduloPedidoState extends State<moduloPedido> {
   CollectionReference cliente =
   FirebaseFirestore.instance.collection("Clientes");
 
-  CollectionReference aux= FirebaseFirestore.instance.collection("negocios");
+  CollectionReference aux= FirebaseFirestore.instance.collection("Productos");
 
 
   @override
@@ -65,7 +66,7 @@ class _moduloPedidoState extends State<moduloPedido> {
             child: ElevatedButton(
               onPressed: () async {
                 String cedula;
-                String id;
+                String id2="";
                 List listaNegocios = [];
                 QuerySnapshot ingreso = await cliente
                     .where("correo", isEqualTo: correo.text)
@@ -78,20 +79,20 @@ class _moduloPedidoState extends State<moduloPedido> {
                   for (var cli in ingreso.docs) {
                     listaCliente.add(cli.data());
                   }
-             QuerySnapshot ingreso2 = await aux.get();
-
-
+             QuerySnapshot ingreso2 = await aux.where('negocio',isEqualTo:widget.id).get();
 
                 if (ingreso2.docs.length > 0) {
                   for (var cli in ingreso2.docs) {
                     listaNegocios.add(cli.data());
+
                   }
                 }
 
                 cedula = listaCliente[0]['id'];
-                id = listaNegocios[0]['id'];
+                id2=listaNegocios[0]['negocio'];
+                print(id2);
 
-                  Navigator.push(context, MaterialPageRoute (builder: (context) =>registrarPedido(cedula: cedula,id: id,)));
+                  Navigator.push(context, MaterialPageRoute (builder: (context) =>registrarPedido(cedula: cedula,id:id2 )));
                   Fluttertoast.showToast(msg: "Cargando Datos",
                       fontSize: 20,
                       backgroundColor: Colors.red,
