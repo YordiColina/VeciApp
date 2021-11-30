@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:proyecto_app/pantalla3.dart';
+import 'package:proyecto_app/pantalla4.dart';
 
 import 'main.dart';
 
@@ -61,7 +63,15 @@ class _pantalla5State extends State<pantalla5> {
             itemBuilder: (BuildContext context, j) {
               return ListTile(
                   onTap: () {
-
+                    print(datos_negocios[j]);
+                    datosNegocio N = datosNegocio(datos_negocios[j]['nombre'],
+                        datos_negocios[j]['categoria'],
+                        datos_negocios[j]['direccion'], datos_negocios[j]['foto'],datos_negocios[j]['celular'],
+                        datos_negocios[j]['telefono'], datos_negocios[j]['pagina'],datos_negocios[j]['producto1'],
+                        datos_negocios[j]['producto2'],datos_negocios[j]['producto3'],datos_negocios[j]['producto4'],
+                        datos_negocios[j]['geolocalizacion'].toString());
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => pantalla4(negocios: N)));
                   },
                   title: miCardImage(url: datos_negocios[j]['foto'],
                       texto: datos_negocios[j]['nombre'] + "\n telefonos: " +

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:proyecto_app/pantalla5.dart';
 import 'package:proyecto_app/registrarPedido.dart';
 import 'listaPersonas.dart';
 import 'main.dart';
@@ -146,7 +147,7 @@ class _carritoBarState extends State<carritoBar> {
                         registrarP();
                         Fluttertoast.showToast(msg: "Pedido Registrado exitosamente.", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
                             toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>listaPersonas(cedula: widget.cliente)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla5()));
                       },
                       child: Text("Confirmar")
                   ),
