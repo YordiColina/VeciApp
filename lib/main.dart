@@ -1,3 +1,4 @@
+import 'package:proyecto_app/mensaje.dart';
 import 'package:proyecto_app/pantalla2.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -155,6 +156,14 @@ class menu extends StatelessWidget {
                     },
                   ),
 
+                  ListTile(
+                    leading: Icon(Icons.email,size: 30, color: Colors.cyan[700]),
+                    enabled: true,
+                    title: Text("Notificaciones"),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>mensaje()));
+                    },
+                  ),
 
                 ]
             )

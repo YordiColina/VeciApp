@@ -49,6 +49,7 @@ dev_dependencies:
   cloud_firestore:
   url_launcher: ^6.0.13
   fluttertoast: ^8.0.8
+  firebase_messaging:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
