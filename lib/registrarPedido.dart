@@ -54,7 +54,7 @@ class _registrarPedidoState extends State<registrarPedido> {
 
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>carritoCompras(pedido: pedido, cedula: widget.cedula, id: widget.id)));
 
-                }, icon: Icon(Icons.add_shopping_cart, size: 30, color: Colors.cyan[700]))
+                }, icon: Icon(Icons.add_shopping_cart, size: 30, color: Colors.white))
           ],
         ),
         drawer: menu(),

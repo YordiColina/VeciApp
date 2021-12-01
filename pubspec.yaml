@@ -49,6 +49,9 @@ dev_dependencies:
   cloud_firestore:
   url_launcher: ^6.0.13
   fluttertoast: ^8.0.8
+  image_picker: ^0.8.4+4
+  firebase_storage: ^10.1.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
