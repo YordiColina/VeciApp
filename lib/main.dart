@@ -123,6 +123,13 @@ class menu extends StatelessWidget {
             Column(
                 children: [
                   ListTile(
+                    leading: Icon(Icons.house, size: 30, color: Colors.cyan[700]),
+                    title: Text("Inicio"),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyApp()));
+                    },
+                  ),
+                  ListTile(
                     leading: Icon(Icons.search, size: 30, color: Colors.cyan[700]),
                     title: Text("Busqueda General"),
                     onTap: (){

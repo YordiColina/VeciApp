@@ -53,7 +53,7 @@ class registroClientes extends StatefulWidget {
          print('No seleccionaste ninguna Foto');
        }
      });
-     Navigator.of(context).pop();
+     Navigator.of(context, rootNavigator: true).pop();
    }
 
 
@@ -98,7 +98,7 @@ class registroClientes extends StatefulWidget {
    ),
 
    ),
-   Icon(Icons.camera_alt,color:Colors.blue)
+   Icon(Icons.camera_alt,color:Colors.cyan[700])
    ],
    ),
    ),
@@ -118,7 +118,7 @@ class registroClientes extends StatefulWidget {
    ),
 
    ),
-   Icon(Icons.image,color:Colors.blue)
+   Icon(Icons.image,color:Colors.cyan[700])
    ],
    ),
    ),
@@ -171,12 +171,17 @@ class registroClientes extends StatefulWidget {
    Padding(padding: EdgeInsets.all(20),
    child: Column(
    children: [
-   ElevatedButton(onPressed:(){
+   ElevatedButton(
+
+       onPressed:(){
 
    opciones(context );
 
-   }
-   , child: Text('seleccione una imagen')
+   },
+     style: ElevatedButton.styleFrom(
+         primary: Colors.cyan[700]),
+    child: Text('seleccione una imagen'),
+
    ),
    SizedBox(height: 30,),
    imagen==null?Center() : Image.file(imagen!)
@@ -311,7 +316,7 @@ class registroClientes extends StatefulWidget {
    limpiar();
    }else{
    clientes.doc(cedula.text).set({
-   "foto":camara,
+
 
    "nombre": nombre.text,
    "apellidos": apellido.text,
