@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.cyan[50],
 
         appBar: AppBar(
-          backgroundColor: Colors.cyan[900],
+          backgroundColor: Colors.cyan[700],
            centerTitle: true,
           title: Text("INICIO"),
         ),
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Column(
 
             children: [
-              Center(
+     /*         Center(
 
                 child: Text(
                   'VeciApp',
@@ -81,15 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 35,color: Colors.brown),
 
 
-
-
-
-
-
         ),
-              ),
-              Image.network('https://firebasestorage.googleapis.com/v0/b/equipo1proyecto-98cd8.appspot.com/o/imagenes%20proyecto%20veci%20app%2Fnegocio.png?alt=media&token=b22f031e-7400-4ff2-90f2-015ceaf38447',
-                alignment: Alignment.center ,)
+              ),*/
+              Image.asset('assets/VECIAPP.jpeg',
+              width: 500,)
             ],
           ),
 
@@ -110,6 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 
+////////////////////////////////////////////////MENU LATERAL ////////////////////////////////////////
 class menu extends StatelessWidget {
 
   @override
@@ -120,14 +116,14 @@ class menu extends StatelessWidget {
           children: [
             DrawerHeader(
                 decoration: BoxDecoration(
-                    color: Colors.cyan[900]
+                    color: Colors.cyan[700]
                 ),
-                child: Image.network('https://firebasestorage.googleapis.com/v0/b/equipo1proyecto-98cd8.appspot.com/o/imagenes%20proyecto%20veci%20app%2Fnegocio.png?alt=media&token=b22f031e-7400-4ff2-90f2-015ceaf38447')
+                child: Image.asset('assets/vecilogo.JPG')
             ),
             Column(
                 children: [
                   ListTile(
-                    leading: Icon(Icons.account_circle_outlined, size: 30, color: Colors.green),
+                    leading: Icon(Icons.search, size: 30, color: Colors.cyan[700]),
                     title: Text("Busqueda General"),
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla2()));
@@ -135,7 +131,7 @@ class menu extends StatelessWidget {
                   ),
 
                   ListTile(
-                    trailing: Icon(Icons.account_box,size: 30, color: Colors.green),
+                    leading: Icon(Icons.note_add,size: 30, color: Colors.cyan[700]),
                     title: Text("Registrarme"),
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>registroClientes()));
@@ -143,7 +139,7 @@ class menu extends StatelessWidget {
                   ),
 
                   ListTile(
-                    trailing: Icon(Icons.account_box,size: 30, color: Colors.green),
+                    leading: Icon(Icons.login,size: 30, color: Colors.cyan[700]),
                     enabled: true,
                     title: Text("Ingresar"),
                     onTap: (){
@@ -151,9 +147,9 @@ class menu extends StatelessWidget {
                     },
                   ),
                   ListTile(
-                    trailing: Icon(Icons.account_box,size: 30, color: Colors.green),
+                    leading: Icon(Icons.shop,size: 30, color: Colors.cyan[700]),
                     enabled: true,
-                    title: Text("Mis Negocios"),
+                    title: Text("Negocios"),
                     onTap: (){
                      Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla5()));
                     },

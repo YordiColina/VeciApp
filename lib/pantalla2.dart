@@ -15,11 +15,11 @@ class  pantalla2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[50],
+      backgroundColor: Colors.cyan[50],
       appBar: AppBar(
-        backgroundColor: Colors.cyan[900],
+        backgroundColor: Colors.cyan[700],
           centerTitle: true,
-          title: Text('Consulta tu Local')
+          title: Text('¿Que negocio buscas?')
       ),
 
       drawer: menu(),
@@ -37,36 +37,80 @@ class  pantalla2 extends StatelessWidget {
 
           Container(
               child: ElevatedButton(
+
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                  padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 20.0)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+    ),
+    //
+
                 onPressed: (){
                   print(dato.text);
 
-                  Navigator.push(context, MaterialPageRoute(builder: (contex)=>pantalla3(dato.text)));
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla3(dato.text)));
                 },
-                child: Text('consultar por Nombre o Categoria'),)
+                child: Text('consultar por Nombre o Categoria',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,fontSize: 20,color: Colors.white,
+              ),
+                ),
+
+
+              )
           ),
+
+
+
+
           Container(
 
               child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                  padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 70.0)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+                ),
+
                 onPressed: (){
 
                   print(dato2.text);
 
-                  Navigator.push(context, MaterialPageRoute(builder: (contex)=>pantalla3(dato2.text)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla3(dato2.text)));
                 },
-                child: Text('consultar por Producto'),
+                child: Text('consultar por Producto',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,fontSize: 20,color: Colors.white,
+                  ),
+                ),
               ),
 
           ),
           Container(
 
             child: ElevatedButton(
+
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 80.0)),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+              ),
               onPressed: (){
 
 
                 Navigator.push(context, MaterialPageRoute(builder: (contex)=>pantalla5()));
               },
-              child: Text('Listado de Negocios'),
+              child: Text('Listado de Negocios',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,fontSize: 20,color: Colors.white,
+                ),
+              ),
             ),
 
           ),

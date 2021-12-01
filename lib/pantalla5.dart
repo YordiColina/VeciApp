@@ -49,9 +49,9 @@ class _pantalla5State extends State<pantalla5> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.amber[50],
+      backgroundColor: Colors.cyan[50],
         appBar: AppBar(
-          backgroundColor: Colors.cyan[900],
+          backgroundColor: Colors.cyan[700],
 
 
 
@@ -104,7 +104,7 @@ class miCardImage extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
         margin: EdgeInsets.all(20),
         elevation: 10,
-        color: Colors.blueAccent,
+        color: Colors.cyan[700],
         child: ClipRRect(
           borderRadius: BorderRadius.circular(35),
           child: Column(
@@ -112,7 +112,7 @@ class miCardImage extends StatelessWidget {
                 Image.network(url),
                 Container(
                     padding: EdgeInsets.all(10),
-                    color: Colors.blueAccent,
+                    color: Colors.cyan[700],
                     child: Text(texto,style: TextStyle(fontSize: 20, color: Colors.white),textAlign: TextAlign.center)
 
                 )

@@ -17,9 +17,9 @@ class pantalla4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[50],
+      backgroundColor: Colors.cyan[50],
       appBar:  AppBar(
-        backgroundColor: Colors.cyan[900],
+        backgroundColor: Colors.cyan[700],
         title: Text("Acerca de: "+negocios.nombre),
       ),
 
@@ -32,12 +32,34 @@ class pantalla4 extends StatelessWidget {
           +"\n Celular: "+negocios.celular+"\n Telefono: "+negocios.telefono+"\n Productos: "+negocios.producto1+", "+negocios.producto2+
               ", "+negocios.producto3+", "+negocios.producto4+"\n Localizacion: "+negocios.geolocalizacion),
           ElevatedButton(
+
+
               onPressed: (){
                 launch(negocios.pagina.toString());
               },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 80.0)),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+              ),
+
               child: Text("Pagina oficial",style: TextStyle(fontSize: 20),)
           ),
           ElevatedButton(
+
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 80.0)),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+              ),
+
+
+
+
             onPressed: (){
               print(negocios.id);
               Navigator.push(context, MaterialPageRoute(builder: (context)=>moduloPedido(id: negocios.id,)));

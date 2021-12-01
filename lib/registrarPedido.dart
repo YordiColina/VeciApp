@@ -43,10 +43,10 @@ class _registrarPedidoState extends State<registrarPedido> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.amber[50],
+      backgroundColor: Colors.cyan[50],
         appBar: AppBar(
-          backgroundColor: Colors.cyan[900],
-          title: Text("Registrar Pedido"),
+          backgroundColor: Colors.cyan[700],
+          title: Text("Registra tu Pedido"),
           centerTitle: true,
           actions: [
             IconButton(
@@ -54,7 +54,7 @@ class _registrarPedidoState extends State<registrarPedido> {
 
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>carritoCompras(pedido: pedido, cedula: widget.cedula, id: widget.id)));
 
-                }, icon: Icon(Icons.add_shopping_cart, size: 30, color: Colors.deepOrangeAccent))
+                }, icon: Icon(Icons.add_shopping_cart, size: 30, color: Colors.cyan[700]))
           ],
         ),
         drawer: menu(),
@@ -64,15 +64,15 @@ class _registrarPedidoState extends State<registrarPedido> {
               var can = TextEditingController();
               return ListTile(
 
-                leading: Icon(Icons.add_box, size: 40,color: Colors.deepOrangeAccent),
+                leading: Icon(Icons.add_box, size: 40,color: Colors.cyan[700]),
                 title:
                   Container(
-                  padding: EdgeInsets.all(20.0),
-                  color: Colors.amber[200],
+                  padding: EdgeInsets.all(10.0),
+                  color: Colors.cyan[100],
                   child: Column(
                     children: [
                       Image.network(listaProductos[i]['foto']),
-                      Text(listaProductos[i]['nombre']+" - "+listaProductos[i]['descripcion']+" - "+listaProductos[i]['precio'].toString()),
+                      Text(listaProductos[i]['descripcion']+" - "+listaProductos[i]['nombre']+" - "+listaProductos[i]['precio'].toString()),
                     ],
                   ),
                 ),

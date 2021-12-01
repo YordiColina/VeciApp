@@ -22,10 +22,10 @@ class _comprobarClienteState extends State<comprobarCliente> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.amber[50],
+        backgroundColor: Colors.cyan[50],
         appBar: AppBar(
-          backgroundColor: Colors.cyan[900],
-          title: Text("Iniciar Sesion"),
+          backgroundColor: Colors.cyan[700],
+          title: Text("Iniciar Sesión"),
           centerTitle: true,
         ),
 
@@ -50,10 +50,10 @@ class _comprobarClienteState extends State<comprobarCliente> {
                 controller: correo,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.blue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,
-                        size: 25, color: Colors.deepOrangeAccent),
+                    icon: Icon(Icons.email,
+                        size: 25, color: Colors.cyan[700]),
                     hintText: "Digite su Correo Electronico ",
                     hintStyle: TextStyle(color: Colors.black12)),
               )),
@@ -63,10 +63,10 @@ class _comprobarClienteState extends State<comprobarCliente> {
                 controller: password,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.blue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,
-                        size: 25, color: Colors.deepOrangeAccent),
+                    icon: Icon(Icons.lock,
+                        size: 25, color: Colors.cyan[700]),
                     hintText: "Digite su Contraseña",
                     hintStyle: TextStyle(color: Colors.black12)),
               )),
@@ -75,6 +75,15 @@ class _comprobarClienteState extends State<comprobarCliente> {
 
             alignment: Alignment.center,
             child:ElevatedButton(
+
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 20.0)),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+              ),
+
                   onPressed: () async {
                 List listaCliente = [];
 
@@ -113,7 +122,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
                 }
               },
               child: Text("Iniciar Sesion",
-                  style: TextStyle(color: Colors.white, fontSize: 25)),
+                  style: TextStyle(color: Colors.white, fontSize: 20)),
             ),
           ),
         ])

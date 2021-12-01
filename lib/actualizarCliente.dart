@@ -46,7 +46,7 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
     return Scaffold(
       backgroundColor: Colors.amber[50],
       appBar: AppBar(
-        backgroundColor: Colors.cyan[900],
+        backgroundColor: Colors.cyan[700],
         title: Text("Actualizar Datos: " + widget.cliente.nombre),
       ),
 
@@ -63,10 +63,10 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
                 controller: nombre,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
                     icon: Icon(
-                        Icons.assignment_rounded, size: 25, color: Colors.blue),
+                        Icons.drag_indicator, size: 25, color: Colors.cyan[700]),
                     hintText: "Digite el nombre",
                     hintStyle: TextStyle(color: Colors.black12)
                 ),
@@ -78,10 +78,10 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
                 controller: apellido,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
                     icon: Icon(
-                        Icons.assignment_rounded, size: 25, color: Colors.blue),
+                        Icons.drag_indicator, size: 25, color: Colors.cyan[700]),
                     hintText: "Digite los apellidos",
                     hintStyle: TextStyle(color: Colors.black12)
                 ),
@@ -93,10 +93,10 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
                 controller: correo,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
                     icon: Icon(
-                        Icons.assignment_rounded, size: 25, color: Colors.blue),
+                        Icons.drag_indicator, size: 25, color: Colors.cyan[700]),
                     hintText: "Digite su Correo",
                     hintStyle: TextStyle(color: Colors.black12)
                 ),
@@ -108,10 +108,10 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
                 controller: celular,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
                     icon: Icon(
-                        Icons.assignment_rounded, size: 25, color: Colors.blue),
+                        Icons.drag_indicator, size: 25, color: Colors.cyan[700]),
                     hintText: "Digite su Celular",
                     hintStyle: TextStyle(color: Colors.black12)
                 ),
@@ -123,10 +123,10 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
                 controller: password,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
                     icon: Icon(
-                        Icons.assignment_rounded, size: 25, color: Colors.blue),
+                        Icons.drag_indicator, size: 25, color: Colors.cyan[700]),
                     hintText: "Digite su Contraseña",
                     hintStyle: TextStyle(color: Colors.black12)
                 ),
@@ -138,10 +138,10 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
                 controller: cedula,
                 style: TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan,
                     filled: true,
                     icon: Icon(
-                        Icons.assignment_rounded, size: 25, color: Colors.blue),
+                        Icons.drag_indicator, size: 25, color: Colors.cyan),
                     hintText: "ingrese su cedula",
                     hintStyle: TextStyle(color: Colors.black12)
                 ),
@@ -154,6 +154,16 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
               padding: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
               alignment: Alignment.center,
               child: ElevatedButton(
+
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                    padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 10.0)),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+                  ),
+
+
                   onPressed: ()async {
                     QuerySnapshot existe = await clientes.where(FieldPath.documentId, isEqualTo: cedula.text).get();
                     if(cedula.text.isEmpty || nombre.text.isEmpty || apellido.text.isEmpty || correo.text.isEmpty || celular.text.isEmpty){
@@ -181,6 +191,15 @@ CollectionReference clientes =FirebaseFirestore.instance.collection('Clientes');
                 padding: EdgeInsets.only(left: 0.0, right: 30.0, bottom: 20.0),
                 alignment: Alignment.center,
                 child: ElevatedButton(
+
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                      padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 20.0)),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+                    ),
+
                     onPressed: ()  {
 
                       if(cedula.text.isEmpty){
