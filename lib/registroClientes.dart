@@ -28,10 +28,10 @@ class _registroClientesState extends State<registroClientes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.amber[50],
+        backgroundColor: Colors.cyan[50],
       appBar: AppBar(
-        backgroundColor: Colors.cyan[900],
-        title: Text("Registro de Clientes"),
+        backgroundColor: Colors.cyan[700],
+        title: Text("Registrate"),
         centerTitle: true,
       ),
 
@@ -46,11 +46,11 @@ class _registroClientesState extends State<registroClientes> {
                 controller: cedula,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    icon: Icon(Icons.person_pin,size: 25,color: Colors.cyan[700]),
                     hintText: "Digite numero de cedula",
-                    hintStyle: TextStyle(color: Colors.black12)
+                    hintStyle: TextStyle(color: Colors.black38)
                 ),
               )
           ),
@@ -60,11 +60,11 @@ class _registroClientesState extends State<registroClientes> {
                 controller: nombre,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    icon: Icon(Icons.sentiment_satisfied_alt,size: 25,color: Colors.cyan[700]),
                     hintText: "Digite el nombre",
-                    hintStyle: TextStyle(color: Colors.black12)
+                    hintStyle: TextStyle(color: Colors.black38)
                 ),
               )
           ),
@@ -74,11 +74,11 @@ class _registroClientesState extends State<registroClientes> {
                 controller: apellido,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    icon: Icon(Icons.spellcheck,size: 25,color: Colors.cyan[700]),
                     hintText: "Digite los apellidos",
-                    hintStyle: TextStyle(color: Colors.black12)
+                    hintStyle: TextStyle(color: Colors.black38)
                 ),
               )
           ),
@@ -88,11 +88,11 @@ class _registroClientesState extends State<registroClientes> {
                 controller: correo,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    icon: Icon(Icons.alternate_email,size: 25,color: Colors.cyan[700]),
                     hintText: "Digite su correo",
-                    hintStyle: TextStyle(color: Colors.black12)
+                    hintStyle: TextStyle(color: Colors.black38)
                 ),
               )
           ),
@@ -102,11 +102,11 @@ class _registroClientesState extends State<registroClientes> {
                 controller: celular,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    icon: Icon(Icons.phone_enabled,size: 25,color: Colors.cyan[700]),
                     hintText: "Digite numero de celular",
-                    hintStyle: TextStyle(color: Colors.black12)
+                    hintStyle: TextStyle(color: Colors.black38)
                 ),
               )
           ),
@@ -116,11 +116,11 @@ class _registroClientesState extends State<registroClientes> {
                 controller: password,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    icon: Icon(Icons.lock,size: 25,color: Colors.cyan[700]),
                     hintText: "Digite su contraseña",
-                    hintStyle: TextStyle(color: Colors.black12)
+                    hintStyle: TextStyle(color: Colors.black38)
                 ),
               )
           ),
@@ -130,11 +130,11 @@ class _registroClientesState extends State<registroClientes> {
                 controller: confirmacion,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Colors.lightBlue,
+                    fillColor: Colors.cyan[700],
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25,color: Colors.blue),
+                    icon: Icon(Icons.lock,size: 25,color: Colors.cyan[700]),
                     hintText: "Confirme su Contraseña",
-                    hintStyle: TextStyle(color: Colors.black12)
+                    hintStyle: TextStyle(color: Colors.black38)
                 ),
               )
           ),
@@ -145,6 +145,17 @@ class _registroClientesState extends State<registroClientes> {
                 padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
                 alignment: Alignment.center,
                 child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                    padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 10.0)),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+                  ),
+
+
+
+
                   onPressed: () async {
                     if(cedula.text.isEmpty || nombre.text.isEmpty || apellido.text.isEmpty || correo.text.isEmpty || celular.text.isEmpty|| password.text.isEmpty|| confirmacion.text.isEmpty){
                       print("Campos Vacios");
@@ -198,13 +209,22 @@ class _registroClientesState extends State<registroClientes> {
 
                     });
                   },
-                  child: Text("Registrar",style: TextStyle(color: Colors.white, fontSize: 25)),
+                  child: Text("Registrar",style: TextStyle(color: Colors.black38, fontSize: 25)),
                 ),
               ),
               Container(
                 padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
                 alignment: Alignment.center,
                 child: ElevatedButton(
+
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                    padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 10.0)),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+
+
+                  ),
+
                   onPressed: () async {
                     if(cedula.text.isEmpty){
                       Fluttertoast.showToast(msg: "Digite la cedula.", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
@@ -234,7 +254,7 @@ class _registroClientesState extends State<registroClientes> {
                       }
                     }
                   },
-                  child: Text("Consultar",style: TextStyle(color: Colors.white, fontSize: 25)),
+                  child: Text("Consultar",style: TextStyle(color: Colors.black38, fontSize: 25)),
                 ),
               )
             ],

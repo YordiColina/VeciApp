@@ -36,9 +36,9 @@ class _comprobarClienteState extends State<comprobarCliente> {
           Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 105.0, right: 15.0, bottom: 0.0),
+                padding: EdgeInsets.only(left: 105.0, right: 15.0, bottom: 10.0,top:10.0),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage('https://firebasestorage.googleapis.com/v0/b/equipo1proyecto-98cd8.appspot.com/o/imagenes%20proyecto%20veci%20app%2Flogin2.png?alt=media&token=60a1bb6f-b789-4531-9031-a7a785af3abe'),
+                  backgroundImage: NetworkImage('https://firebasestorage.googleapis.com/v0/b/equipo1proyecto-98cd8.appspot.com/o/imagenes%20proyecto%20veci%20app%2Flogin.JPG?alt=media&token=e1ca7a78-72db-4f6f-9265-fd153ecd26c0'),
                   radius: 70,
                 ),
               )
@@ -55,7 +55,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
                     icon: Icon(Icons.email,
                         size: 25, color: Colors.cyan[700]),
                     hintText: "Digite su Correo Electronico ",
-                    hintStyle: TextStyle(color: Colors.black12)),
+                    hintStyle: TextStyle(color: Colors.black45)),
               )),
           Container(
               padding: EdgeInsets.all(20.0),
@@ -68,7 +68,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
                     icon: Icon(Icons.lock,
                         size: 25, color: Colors.cyan[700]),
                     hintText: "Digite su Contraseña",
-                    hintStyle: TextStyle(color: Colors.black12)),
+                    hintStyle: TextStyle(color: Colors.black45)),
               )),
           Container(
             padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
