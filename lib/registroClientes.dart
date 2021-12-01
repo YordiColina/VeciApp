@@ -323,7 +323,8 @@ class registroClientes extends StatefulWidget {
    "correo": correo.text,
    "celular": celular.text,
    "password":password.text,
-   "confirmacion": confirmacion.text
+   "confirmacion": confirmacion.text,
+     "id": cedula.text,
    });
    /* void getCriterio3() async {
                           String respuesta=" ";
