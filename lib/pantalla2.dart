@@ -90,7 +90,7 @@ class  pantalla2 extends StatelessWidget {
               ),
 
           ),
-          Container(
+         /* Container(
 
             child: ElevatedButton(
 
@@ -113,7 +113,7 @@ class  pantalla2 extends StatelessWidget {
               ),
             ),
 
-          ),
+          ),*/
 
 
 
