@@ -76,7 +76,7 @@ class _pantalla5State extends State<pantalla5> {
                         datos_negocios[j]['direccion'], datos_negocios[j]['foto'],datos_negocios[j]['celular'],
                         datos_negocios[j]['telefono'], datos_negocios[j]['pagina'],datos_negocios[j]['producto1'],
                         datos_negocios[j]['producto2'],datos_negocios[j]['producto3'],datos_negocios[j]['producto4'],
-                        datos_negocios[j]['geolocalizacion'].toString());
+                        datos_negocios[j]['geolocalizacion']);
                     Navigator.push(context, MaterialPageRoute(
                         builder: (context) => pantalla4(negocios: N)));
                   },

@@ -61,19 +61,7 @@ class _pantalla3State extends State<pantalla3> {
   }
 
 
-  /*void getCriterioGustos() async {
-    CollectionReference datos = FirebaseFirestore.instance.collection("gustos");
-    QuerySnapshot gustos = await datos.where(
-        "nombre", isEqualTo: widget.criterio).get();
-    if (gustos.docs.length != 0) {
-      for (var per in gustos.docs) {
-        print(per.data());
-        setState(() {
-          gustosLista.add(per);
-        });
-      }
-    }
-  }*/
+
   void getCriterio() async {
     CollectionReference datos = FirebaseFirestore.instance.collection(
         'negocios');
@@ -142,21 +130,7 @@ class _pantalla3State extends State<pantalla3> {
     }
   }
 
-    /*  String id;
-    CollectionReference datos2 = FirebaseFirestore.instance.collection("Personas");
-    for(var i=0;i<gustosLista.length;i++){
-      id=gustosLista[i]['persona'];
-      QuerySnapshot persona = await datos2.where(FieldPath.documentId, isEqualTo: id).get();
-      if(persona.docs.length>0){
-        for(var pers in persona.docs){
-          setState(() {
-            negociosLista.add(pers.data());
-            print(pers.data());
-          });
 
-        }
-      }else{ print('No encontro personas para ese gusto');}
-    }*/
 
 
     @override
@@ -182,7 +156,7 @@ class _pantalla3State extends State<pantalla3> {
                         pers[j]['direccion'], pers[j]['foto'],pers[j]['celular'],
                         pers[j]['telefono'], pers[j]['pagina'],pers[j]['producto1'],
                     pers[j]['producto2'],pers[j]['producto3'],pers[j]['producto4'],
-                    pers[j]['geolocalizacion'].toString());
+                    pers[j]['geolocalizacion']);
                     Navigator.push(context, MaterialPageRoute(
                         builder: (context) => pantalla4(negocios: N)));
                   },
@@ -240,7 +214,7 @@ class datosNegocio{
   String producto2="";
   String producto3="";
   String producto4="";
-  String geolocalizacion="";
+  late GeoPoint geolocalizacion;
 
   datosNegocio(id,nombre,categoria,direccion,foto,celular,telefono,pagina,producto1,producto2,producto3,producto4,geolocalizacion){
     this.id=id;

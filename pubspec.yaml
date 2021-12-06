@@ -52,6 +52,8 @@ dev_dependencies:
   image_picker: ^0.8.4+4
   firebase_storage: ^10.1.0
   firebase_messaging:
+  google_maps_flutter: ^2.1.1
+  permission_handler: ^8.3.0
 
 
 # For information on the generic Dart part of this file, see the
