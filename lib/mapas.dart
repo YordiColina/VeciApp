@@ -4,7 +4,7 @@ import 'package:proyecto_app/pantalla3.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:proyecto_app/pantalla4.dart';
-import 'package:permission_handler/permission_handler.dart';
+
 
 class mapas extends StatefulWidget {
 
@@ -19,13 +19,15 @@ class _mapasState extends State<mapas> {
 
   late GeoPoint pos = widget.negocio.geolocalizacion;
 
+
   @override
   Widget build(BuildContext context) {
 
     final posicion = CameraPosition(
-        target: LatLng(pos.latitude, pos.longitude),
+        target: LatLng(8.3694067, -62.6587422),
         zoom: 15
     );
+
 
     final Set<Marker> marcador = Set();
     String cedula="123456";
@@ -33,7 +35,7 @@ class _mapasState extends State<mapas> {
     marcador.add(
         Marker(
             markerId: MarkerId(cedula),
-            position: LatLng(pos.latitude, pos.longitude),
+            position: LatLng(8.3694067,-62.6587422),
             icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
             infoWindow: InfoWindow(
                 title: widget.negocio.nombre+" "+widget.negocio.categoria,

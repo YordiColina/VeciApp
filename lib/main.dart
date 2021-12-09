@@ -130,6 +130,13 @@ class menu extends StatelessWidget {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla2()));
                     },
                   ),
+                  ListTile(
+                    leading: Icon(Icons.home, size: 30, color: Colors.cyan[700]),
+                    title: Text("Inicio"),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyApp()));
+                    },
+                  ),
 
                   ListTile(
                     leading: Icon(Icons.note_add,size: 30, color: Colors.cyan[700]),
