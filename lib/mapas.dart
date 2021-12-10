@@ -28,7 +28,7 @@ class _mapasState extends State<mapas> {
 
     final posicion = CameraPosition(
         target: LatLng(pos.latitude, pos.longitude),
-        zoom: 15
+        zoom: 17
     );
 
 
@@ -43,8 +43,8 @@ class _mapasState extends State<mapas> {
             position: LatLng(pos.latitude,pos.longitude),
             icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
             infoWindow: InfoWindow(
-                title: widget.negocio.nombre+" "+widget.negocio.categoria,
-                snippet: widget.negocio.direccion
+                title: widget.negocio.nombre+"-"+widget.negocio.categoria,
+                snippet: widget.negocio.direccion+ " "+widget.negocio.telefono
             )
 
 
