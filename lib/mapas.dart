@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:proyecto_app/main.dart';
+
 import 'package:proyecto_app/pantalla3.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -20,11 +20,12 @@ class _mapasState extends State<mapas> {
   late GeoPoint pos = widget.negocio.geolocalizacion;
 
 
+
   @override
   Widget build(BuildContext context) {
 
     final posicion = CameraPosition(
-        target: LatLng(8.3694067, -62.6587422),
+        target: LatLng(pos.latitude, pos.longitude),
         zoom: 15
     );
 
@@ -35,7 +36,7 @@ class _mapasState extends State<mapas> {
     marcador.add(
         Marker(
             markerId: MarkerId(cedula),
-            position: LatLng(8.3694067,-62.6587422),
+            position: LatLng(pos.latitude,pos.longitude),
             icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
             infoWindow: InfoWindow(
                 title: widget.negocio.nombre+" "+widget.negocio.categoria,
@@ -45,6 +46,10 @@ class _mapasState extends State<mapas> {
 
         )
     );
+
+
+
+
     return Scaffold(
         appBar: AppBar(
           title: Text("Geolocalización"),
