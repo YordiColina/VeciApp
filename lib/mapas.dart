@@ -40,7 +40,7 @@ class _mapasState extends State<mapas> {
             icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
             infoWindow: InfoWindow(
                 title: widget.negocio.nombre+" "+widget.negocio.categoria,
-                snippet: widget.negocio.pagina
+                snippet: widget.negocio.direccion
             )
 
 

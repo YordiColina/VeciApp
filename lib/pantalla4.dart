@@ -84,7 +84,7 @@ class pantalla4 extends StatelessWidget {
 
 
               onPressed: (){
-                datosMapa_negocio neg= datosMapa_negocio(negocios.nombre, negocios.categoria, negocios.direccion, negocios.foto, negocios.pagina, negocios.geolocalizacion);
+                datosMapa_negocio neg= datosMapa_negocio(negocios.nombre, negocios.categoria, negocios.direccion, negocios.foto, negocios.telefono, negocios.geolocalizacion);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>mapas(negocio: neg)));
               },
               style: ButtonStyle(
@@ -107,9 +107,9 @@ class datosMapa_negocio{
   String categoria="";
   String direccion="";
   String foto="";
-  String pagina="";
+  String telefono="";
   late GeoPoint geolocalizacion;
 
-  datosMapa_negocio(this.nombre, this.categoria, this.direccion, this.foto, this.pagina, this.geolocalizacion);
+  datosMapa_negocio(this.nombre, this.categoria, this.direccion, this.foto, this.telefono, this.geolocalizacion);
 }
 
