@@ -23,11 +23,11 @@ class _carritoComprasState extends State<carritoCompras> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[50],
+      backgroundColor: Colors.cyan[50],
       appBar: AppBar(
         title: Text("Carrito de Compras"),
         centerTitle: true,
-        backgroundColor: Colors.cyan[900],
+        backgroundColor: Colors.cyan[700],
       ),
       drawer: menu(),
       body: Center(
@@ -37,7 +37,7 @@ class _carritoComprasState extends State<carritoCompras> {
               return ListTile(
                 title: Text(widget.pedido[i].nombre+" - "+widget.pedido[i].descripcion+" - "+widget.pedido[i].precio+" - "+
                     widget.pedido[i].cant.toString()+" - "+widget.pedido[i].total.toString()),
-                trailing: Icon(Icons.delete, size: 30, color: Colors.red,),
+                trailing: Icon(Icons.delete, size: 30, color: Colors.cyan[700],),
                 onTap: (){
                   widget.pedido.removeAt(i);
                   setState(() { });
@@ -104,20 +104,20 @@ class _carritoBarState extends State<carritoBar> {
 
 
     return BottomNavigationBar(
-      backgroundColor: Colors.cyan[900],
+      backgroundColor: Colors.cyan[700],
       selectedItemColor: Colors.white,
       unselectedItemColor: Colors.white,
       items: [
         BottomNavigationBarItem(
-            icon: Icon(Icons.add_shopping_cart_sharp, size: 30),
+            icon: Icon(Icons.add_shopping_cart_sharp, size: 30, color: Colors.cyan[50]),
             label: "Agregar\nProducto"
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.app_registration, size: 30),
+            icon: Icon(Icons.app_registration, size: 30, color: Colors.cyan[50]),
             label: "TOTAL"
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.add_business_sharp, size: 30),
+            icon: Icon(Icons.add_business_sharp, size: 30, color: Colors.cyan[50]),
             label: "Confirmar\nCompra"
         )
       ],
@@ -133,28 +133,43 @@ class _carritoBarState extends State<carritoBar> {
           showDialog(
               context: context,
               builder: (context)=>AlertDialog(
-                title: Text("Total de la Compra:", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.green),),
+                title: Text("Total de la Compra:", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.cyan[700]),),
                 contentPadding: EdgeInsets.all(20.0),
-                content: Text(totalPedido.toString(), style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.green),),
+                content: Text(totalPedido.toString(), style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.cyan[700]),),
               ));
         }else{
           showDialog(
               context: context,
               builder: (context)=>AlertDialog(
-                title: Text("Confirmar la Compra:", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.green),),
+                title: Text("Confirmar la Compra:", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.cyan[700]),),
                 contentPadding: EdgeInsets.all(23.0),
-                content: Text("Confirma el registro de la Compra.", style: TextStyle(fontSize: 16.0, color: Colors.green),),
+                content: Text("Confirma el registro de la Compra.", style: TextStyle(fontSize: 16.0, color: Colors.cyan[700]),),
                 actions: [
                   ElevatedButton(
+
+
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 20.0)),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                      ),
+
                       onPressed: (){
                         registrarP();
-                        Fluttertoast.showToast(msg: "Pedido Registrado exitosamente.", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                        Fluttertoast.showToast(msg: "Pedido Registrado exitosamente.", fontSize: 20, backgroundColor: Colors.cyan[700], textColor: Colors.cyan[50],
                             toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>pantalla5()));
                       },
                       child: Text("Confirmar")
                   ),
                   ElevatedButton(
+
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+                        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical:10.0,horizontal: 20.0)),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                      ),
+
                       onPressed: (){
                         Navigator.of(context).pop();
                       },

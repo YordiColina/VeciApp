@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:proyecto_app/pantalla4.dart';
 
+import 'main.dart';
+
 
 class mapas extends StatefulWidget {
 
@@ -35,12 +37,14 @@ class _mapasState extends State<mapas> {
 
     marcador.add(
         Marker(
+
+
             markerId: MarkerId(cedula),
             position: LatLng(pos.latitude,pos.longitude),
-            icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+            icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
             infoWindow: InfoWindow(
                 title: widget.negocio.nombre+" "+widget.negocio.categoria,
-                snippet: widget.negocio.pagina
+                snippet: widget.negocio.direccion
             )
 
 
@@ -50,10 +54,16 @@ class _mapasState extends State<mapas> {
 
 
 
+
     return Scaffold(
         appBar: AppBar(
           title: Text("Geolocalización"),
+          backgroundColor: Colors.cyan[700],
+          centerTitle: true,
         ),
+
+        drawer: menu(),
+
         body: ListView(
           children: [
             miCardImage(url: widget.negocio.foto, texto: widget.negocio.nombre+" "+widget.negocio.categoria),
